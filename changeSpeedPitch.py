@@ -13,13 +13,7 @@ clip = VideoFileClip("Python in 100 Seconds.mp4")
 clip = clip.subclip(0, 5)
    
 # applying speed effect
-final = clip.fx( vfx.speedx, 0.5)
+final = clip.fx( vfx.speedx, 2)
   
 # showing final clip - works
 final.write_videofile("newVideo.mp4")
-
-# Python program to translate
-# speech to text and text to speech
-
-
-#------------------------speech to text-------------------------------
