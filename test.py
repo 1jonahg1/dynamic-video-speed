@@ -1,5 +1,5 @@
 from adjustPitchSpeed import Video, concatenate_videos
-from 
+
 videos = [
   Video(speed=1.0, path="C:/temp/my_video_1.mp4"),
   Video(speed=2.0, path="C:/temp/my_video_2.mp4"),
