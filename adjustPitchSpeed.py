@@ -1,19 +1,16 @@
 import subprocess
-from typing import List
-
-
 
 ffmpeg_exe = "ffmpeg.exe"
 
 COMMAND_BASE =  [ffmpeg_exe]
-COMMAND_BASE += ["-n"      ] # disable file overwriting
+COMMAND_BASE += ["-n"] # disable file overwriting
 
 class Video():
   def __init__(self, path:str, speed:float=1.0):
     self.path  = path
     self.speed = speed
 
-def concatenate_videos(videos:List[Video], output_file:str):
+def concatenate_videos(videos:list[Video], output_file:str):
   video_count  = len(videos)
   video_speeds = [float(1/x.speed) for x in videos]
   audio_speeds = [float(x.speed) for x in videos]
