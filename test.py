@@ -5,7 +5,7 @@ import speech_recognition as sr
 from adjustPitchSpeed import Video, concatenate_videos
 
 # loading video 
-clip = VideoFileClip("Python in 100 Seconds.mp4")
+clip = VideoFileClip("Python.mp4")
    
 # getting only first 5 seconds
 clip1 = clip.subclip(0, 5)
