@@ -30,17 +30,15 @@ def get_words(name):
 
 #296 in 100 sec -> 178wpm --> I want 300 wpm
 
-get_words("my_video_1")
-get_words("my_video_2")
-get_words("my_video_3")
+words1 = get_words("my_video_1")
+words2 = get_words("my_video_2")
+words3 = get_words("my_video_3")
 
-"""
 #update speeds 
 videos = [
-  Video(speed=1.0, path="dynamic_test_output/my_video_1.mp4"),
-  Video(speed=2.0, path="dynamic_test_output/my_video_2.mp4"),
-  Video(speed=0.5, path="dynamic_test_output/my_video_3.mp4"),
+  Video(speed=300/(words1*3), path="dynamic_test_output/my_video_1.mp4"),
+  Video(speed=300/(words2*3), path="dynamic_test_output/my_video_2.mp4"),
+  Video(speed=300/(words3*3), path="dynamic_test_output/my_video_3.mp4"),
 ]
 
 concatenate_videos(videos=videos, output_file=f"dynamic_test_output/final_output_video.mp4")
-"""
