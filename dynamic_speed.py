@@ -36,8 +36,8 @@ words3 = get_words("my_video_3")
 
 #update speeds 
 videos = [
-  Video(speed=300/(words1*3), path="dynamic_test_output/my_video_1.mp4"),
-  Video(speed=300/(words2*3), path="dynamic_test_output/my_video_2.mp4"),
+  Video(speed=300/(words1*3), path="dynamic_test_output/my_video_1.mp4"), # change 3 to 60/video-length
+  Video(speed=300/(words2*3), path="dynamic_test_output/my_video_2.mp4"), #change 300 to wanted speed
   Video(speed=300/(words3*3), path="dynamic_test_output/my_video_3.mp4"),
 ]
 
