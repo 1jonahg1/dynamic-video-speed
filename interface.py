@@ -12,7 +12,7 @@ def B2FUNCTION ():
     #add 10 sec audio to test
 
 window=Tk()
-
+window.iconbitmap('flash.ico')
 title=Label(window, text="Change Lecture Speed to the Ideal Speed For You", fg='black', font=("Helvetica", 14))
 
 title.pack()

@@ -1,0 +1,3 @@
+add test to tkinter
+add running avg
+test solutions for edit speed based on bottleneck
