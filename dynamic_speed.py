@@ -12,19 +12,19 @@ WORDS_PER_MINUTE = 300
 # loading video
 clip = VideoFileClip("Python.mp4")
 duration = clip.duration
-videoSegments = math.ceil(duration / SEGMENT_DURATION)
-lastVideoDuration = duration % SEGMENT_DURATION
+video_segments = math.ceil(duration / SEGMENT_DURATION)
+last_video_duration = duration % SEGMENT_DURATION
 
 def splitClips():
   clips = []
-  for i in range(videoSegments-1):
+  for i in range(video_segments-1):
     clips.append(clip.subclip((i)*SEGMENT_DURATION, (i+1)*SEGMENT_DURATION))
-  clips.append(clip.subclip(duration-lastVideoDuration, duration))
+  clips.append(clip.subclip(duration-last_video_duration, duration))
   for index, video in enumerate(clips):
     video.write_videofile("dynamic_test_output/my_video_{}.mp4".format(index))
   return clips
 
-clipList = splitClips()
+clip_list = splitClips()
 
 
 def get_words(name):
@@ -41,14 +41,14 @@ def get_words(name):
   
 def update_speeds():
   videos = []
-  for index in range(len(clipList)-1):
+  for index in range(len(clip_list)-1):
     words = get_words("my_video_{}".format(index))
-    adjustSpeed = WORDS_PER_MINUTE/(words*(60/SEGMENT_DURATION))
-    videos.append(Video(speed=adjustSpeed, path="dynamic_test_output/my_video_{}.mp4".format(index)))
+    adjust_speed = WORDS_PER_MINUTE/(words*(60/SEGMENT_DURATION))
+    videos.append(Video(speed=adjust_speed, path="dynamic_test_output/my_video_{}.mp4".format(index)))
   #edit last segment
   words = get_words("my_video_{}".format(index+1))
-  adjustSpeed = WORDS_PER_MINUTE/(words*(60/lastVideoDuration))
-  videos.append(Video(speed=adjustSpeed, path="dynamic_test_output/my_video_{}.mp4".format(index+1)))
+  adjust_speed = WORDS_PER_MINUTE/(words*(60/last_video_duration))
+  videos.append(Video(speed=adjust_speed, path="dynamic_test_output/my_video_{}.mp4".format(index+1)))
   #update speeds 
   concatenate_videos(videos=videos, output_file=f"dynamic_test_output/final_output_video.mp4")
 
