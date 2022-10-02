@@ -9,7 +9,6 @@ class MyWindow:
     def __init__(self, window):
         self.file_path = ''
         self.picked_file = False
-        window.iconbitmap('flash.ico')
         self.title=Label(window, text="Change Lecture Speed to the Ideal Speed For You", fg='black', font=("Helvetica", 14))
         self.title.pack()
         self.f = tkFont.Font(self.title, self.title.cget("font"))
@@ -17,7 +16,7 @@ class MyWindow:
         self.title.configure(font=self.f)
         self.title.place(x=75, y=40)
 
-        self.file=Button(window, text="        Choose File        ", fg='white',bg='dark grey',command=self.select_file)
+        self.file=Button(window, text="        Choose File        ", fg='white',bg='grey',command=self.select_file)
         self.file.place(x=230, y=80)
 
         self.test=Button(window, text="Test Speed", fg='white',bg='grey',command=self.Test)
@@ -52,7 +51,6 @@ class MyWindow:
         input_language = self.languages.get(self.languages.curselection()[0]) 
         input_wpm = int(self.wpm.get())
         print("Input Language: " + str(input_language) + "\n" + "Input WPM: " + str(input_wpm))
-        
         if not self.select_file:
             print("Select File First")
         else:
@@ -67,6 +65,7 @@ class MyWindow:
     
 window=Tk()
 window.title('Video Speed Manager')
+window.iconbitmap('flash.ico')
 window.geometry("600x400+10+20")
 mywin=MyWindow(window)
 window.mainloop()
