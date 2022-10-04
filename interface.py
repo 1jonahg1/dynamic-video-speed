@@ -60,6 +60,7 @@ class MyWindow:
     def Test (self):
         input_wpm = int(self.wpm.get())
         print("Input WPM: " + str(input_wpm))
+        dynamic_speed.test_update_audio()
         
         
     

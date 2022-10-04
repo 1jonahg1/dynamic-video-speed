@@ -30,8 +30,10 @@ class VideoEdit():
   
   def update_speeds(self, clip_list):
     videos = []
+    test_words = []
     for index in range(len(clip_list)-1):
       words = get_words("my_video_{}".format(index))
+      test_words.append(words)
       adjust_speed = self.wpm/(words*(60/SEGMENT_DURATION))
       videos.append(Video(speed=adjust_speed, path="dynamic_test_output/my_video_{}.mp4".format(index))) # TODO - change to temp file
     #edit last segment
@@ -40,6 +42,10 @@ class VideoEdit():
     videos.append(Video(speed=adjust_speed, path="dynamic_test_output/my_video_{}.mp4".format(index+1)))
     #update speeds 
     concatenate_videos(videos=videos, output_file=f"dynamic_test_output/final_output_video.mp4")
+    
+    #test
+    for i, words in enumerate(test_words):
+      print('video {} - words: {}'.format(i,words))
 
 def get_words(name):
       command2mp3 = "ffmpeg -i dynamic_test_output/{}.mp4 dynamic_test_output/{}.mp3".format(name,name)
@@ -48,13 +54,14 @@ def get_words(name):
       os.system(command2wav)
       r = sr.Recognizer()
       with sr.AudioFile("dynamic_test_output/{}.wav".format(name)) as source:
-          audio = r.record(source, duration=20) 
-      text = (r.recognize_google(audio)).split()
+          audio = r.record(source, duration=SEGMENT_DURATION) 
+      text = (r.recognize_google(audio, language='he')).split() #language
       print("!!!!Length of text!!!! \n" + str(len(text)))
       return len(text)
 
 def test_update_audio(wpm, test_video_words = 56, test_video_duration = 19):
   adjust_speed = wpm/(test_video_words*(60/test_video_duration))
   #TODO - adjust the speed of audio (save as temp file?)
+
 
 
