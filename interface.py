@@ -1,7 +1,6 @@
 from tkinter import *
 import tkinter.font as tkFont
 from tkinter import filedialog as fd
-from tkinter.messagebox import showinfo
 import dynamic_speed
 
 
@@ -61,7 +60,8 @@ class MyWindow:
     def Test (self):
         input_wpm = int(self.wpm.get())
         print("Input WPM: " + str(input_wpm))
-        #add 10 sec audio to test
+        
+        
     
 window=Tk()
 window.title('Video Speed Manager')
