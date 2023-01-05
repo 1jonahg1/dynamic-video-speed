@@ -1,7 +1,7 @@
 from tkinter import Label, Button, Listbox, END, Entry, Tk
 import tkinter.font as tkFont
 from tkinter import filedialog as fd
-import dynamic_speed
+import DynamicVideoEdit
 
 
 class MyWindow:
@@ -59,7 +59,7 @@ class MyWindow:
         if not self.select_file:
             print("Select File First")
         else:
-            video = dynamic_speed.VideoEdit(self.file_path, input_language,
+            video = DynamicVideoEdit.VideoEdit(self.file_path, input_language,
                                             input_wpm)
             clip_list = video.splitClips() 
             video.update_speeds(clip_list)
@@ -67,7 +67,7 @@ class MyWindow:
     def Test(self):
         input_wpm = int(self.wpm.get())
         print("Input WPM: " + str(input_wpm))
-        dynamic_speed.test_update_audio()
+        DynamicVideoEdit.test_update_audio()
 
 
 window = Tk()

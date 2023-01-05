@@ -9,7 +9,7 @@ SEGMENT_DURATION = 30
 # WORDS_PER_MINUTE = 300
 
 
-class VideoEdit():
+class DynamicVideoEdit():
     def __init__(self, video_path, input_language, words_per_minute):
         self.clip = VideoFileClip(video_path)
         self.duration = self.clip.duration
