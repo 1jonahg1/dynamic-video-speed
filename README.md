@@ -24,4 +24,4 @@ For example the tool could be used to watch a lecture at a constant speed, which
 While this tool offers a convenient solution for adjusting the speed of a video based on the speaker's rate, it is important to note that the current process can take a significant amount of time, especially due to the time it takes in saving each segment's mp4's seperately before reassembling them. 
 
 # Contributions
-Contributions are welcome! If you would like to contribute, please open a pull request.
+Contributions are welcome! If you would like to contribute through code or with ideas for improvements, please open a pull request.
