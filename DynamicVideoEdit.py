@@ -25,7 +25,7 @@ class DynamicVideoEdit():
             clips.append(self.clip.subclip((i)*SEGMENT_DURATION, (i+1)*SEGMENT_DURATION))
         clips.append(self.clip.subclip(self.duration-self.last_video_duration, self.duration))
         for index, video in enumerate(clips):
-            video.write_videofile("dynamic_test_output/my_video_{}.mp4".format(index))
+            video.write_videofile("testing/dynamic_test_output/my_video_{}.mp4".format(index))
         return clips
 
     def update_speeds(self, clip_list):
@@ -35,25 +35,25 @@ class DynamicVideoEdit():
             words = get_words("my_video_{}".format(index))
             test_words.append(words)
             adjust_speed = self.wpm/(words*(60/SEGMENT_DURATION))
-            videos.append(Video(speed=adjust_speed, path="dynamic_test_output/my_video_{}.mp4".format(index))) # TODO - change to temp file
+            videos.append(Video(speed=adjust_speed, path="testing/dynamic_test_output/my_video_{}.mp4".format(index))) # TODO - change to temp file
         # edit last segment
         words = get_words("my_video_{}".format(index+1))
         adjust_speed = self.wpm/(words*(60/self.last_video_duration))
-        videos.append(Video(speed=adjust_speed, path="dynamic_test_output/my_video_{}.mp4".format(index+1)))
+        videos.append(Video(speed=adjust_speed, path="testing/dynamic_test_output/my_video_{}.mp4".format(index+1)))
         # update speeds
-        concatenate_videos(videos=videos, output_file=f"dynamic_test_output/final_output_video.mp4")
+        concatenate_videos(videos=videos, output_file=f"final_output_video.mp4")
         # test
         for i, words in enumerate(test_words):
             print('video {} - words: {}'.format(i, words))
 
 
 def get_words(name):
-    command2mp3 = "ffmpeg -i dynamic_test_output/{}.mp4 dynamic_test_output/{}.mp3".format(name,name)
-    command2wav = "ffmpeg -i dynamic_test_output/{}.mp3 dynamic_test_output/{}.wav".format(name,name)
+    command2mp3 = "ffmpeg -i testing/dynamic_test_output/{}.mp4 testing/dynamic_test_output/{}.mp3".format(name,name)
+    command2wav = "ffmpeg -i testing/dynamic_test_output/{}.mp3 testing/dynamic_test_output/{}.wav".format(name,name)
     os.system(command2mp3)
     os.system(command2wav)
     r = sr.Recognizer()
-    with sr.AudioFile("dynamic_test_output/{}.wav".format(name)) as source:
+    with sr.AudioFile("testing/dynamic_test_output/{}.wav".format(name)) as source:
         audio = r.record(source, duration=SEGMENT_DURATION) 
     text = (r.recognize_google(audio, language='he')).split()  # language
     print("!!!!Length of text!!!! \n" + str(len(text)))
