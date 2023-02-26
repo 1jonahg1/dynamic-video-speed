@@ -11,7 +11,7 @@ class MyWindow:
         self.title = Label(window, text="Change Lecture Speed to the Ideal Speed For You", fg='black', font=("Helvetica", 14))
         self.title.pack()
         self.f = tkFont.Font(self.title, self.title.cget("font"))
-        self.f.configure(underline = True)
+        self.f.configure(underline=True)
         self.title.configure(font=self.f)
         self.title.place(x=75, y=40)
         self.file = Button(window, text="        Choose File        ", fg='white', bg='grey', command=self.select_file)
