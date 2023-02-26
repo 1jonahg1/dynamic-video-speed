@@ -60,7 +60,7 @@ class MyWindow:
 
 window = Tk()
 window.title('Video Speed Manager')
-window.iconbitmap('flash.ico')
+window.iconbitmap('testing/flash.ico')
 window.geometry("600x400+10+20")
 mywin = MyWindow(window)
 window.mainloop()
