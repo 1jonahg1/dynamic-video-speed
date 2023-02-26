@@ -1,0 +1,4 @@
+add test to tkinter
+add anommally (small amount of words) - based on general avg - else hard num based on input
+add running avg
+test solutions for edit speed based on bottleneck
